@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "jfHdzW5FCqWuxM5p19+0b+jOUKPy43+V6tWODaVzDo0MMTe1JvL8DwCno0mIGrN3NbuNzYcNsWov5SNmSgL6Zw==",
+  "success": true,
+  "projectFilePath": "E:\\work\\GitRepository\\Study\\StudySkill\\Design.Decorator\\Design.Decorator.csproj",
+  "expectedPackageFiles": [
+    "F:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "F:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

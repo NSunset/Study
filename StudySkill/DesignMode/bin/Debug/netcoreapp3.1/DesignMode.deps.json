@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "DesignMode/1.0.0": {
+        "dependencies": {
+          "Design.Decorator": "1.0.0"
+        },
+        "runtime": {
+          "DesignMode.dll": {}
+        }
+      },
+      "Design.Decorator/1.0.0": {
+        "runtime": {
+          "Design.Decorator.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DesignMode/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Design.Decorator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
