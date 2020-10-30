@@ -1,9 +1,0 @@
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\bin\Debug\netstandard2.0\Design.Decorator.deps.json
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\bin\Debug\netstandard2.0\Design.Decorator.dll
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\bin\Debug\netstandard2.0\Design.Decorator.pdb
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\obj\Debug\netstandard2.0\Design.Decorator.AssemblyInfoInputs.cache
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\obj\Debug\netstandard2.0\Design.Decorator.AssemblyInfo.cs
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\obj\Debug\netstandard2.0\Design.Decorator.csproj.CoreCompileInputs.cache
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\obj\Debug\netstandard2.0\Design.Decorator.dll
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\obj\Debug\netstandard2.0\Design.Decorator.pdb
-E:\work\GitRepository\Study\StudySkill\Design.Decorator\obj\Debug\netstandard2.0\Design.Decorator.csprojAssemblyReference.cache
