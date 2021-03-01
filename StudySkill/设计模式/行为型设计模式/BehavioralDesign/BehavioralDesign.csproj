@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="备忘录模式\" />
+    <Folder Include="命令模式\" />
+    <Folder Include="中介者模式\" />
+    <Folder Include="状态模式\" />
+    <Folder Include="责任链模式\" />
+    <Folder Include="模板方法模式\" />
+    <Folder Include="解释器模式\" />
+    <Folder Include="观察者模式\" />
+    <Folder Include="访问者模式\" />
+    <Folder Include="迭代模式\" />
+    <Folder Include="策略模式\" />
+  </ItemGroup>
+
+</Project>

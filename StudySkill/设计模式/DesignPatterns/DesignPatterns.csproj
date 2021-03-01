@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\创建型设计模式\CreationDesign\CreationDesign.csproj" />
+    <ProjectReference Include="..\结构型设计模式\StructureDesign\StructureDesign.csproj" />
+    <ProjectReference Include="..\行为型设计模式\BehavioralDesign\BehavioralDesign.csproj" />
+  </ItemGroup>
+
+</Project>
