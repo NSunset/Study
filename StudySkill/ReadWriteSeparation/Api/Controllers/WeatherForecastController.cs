@@ -6,6 +6,7 @@ using lib;
 using lib.Data.Default;
 using lib.EFDbContext.Default;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Api.Controllers
@@ -30,27 +31,18 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             object list = null, list1 = null;
-            for (int i = 0; i < 30000; i++)
-            {
-                await Task.Run(() =>
-                {
-                    var dbContext = _defaultContextFactory.GetDefaultDbContext(WriteAndRead.Read);
-                    var query = from u in dbContext.User
-                                select u;
-                    list = query.ToList();
-                });
+            var dbContext = _defaultContextFactory.GetDefaultDbContext(WriteAndRead.Write);
+            var query = from u in dbContext.User.AsNoTracking()
+                        select u;
+            list = query.AsEnumerable();
 
-                await Task.Run(() =>
-                 {
-                     var dbContext1 = _defaultContextFactory.GetDefaultDbContext(WriteAndRead.Read);
-                     var query1 = from u in dbContext1.User
-                                  select u;
-                     list1 = query1.ToList();
-                 });
-            }
+            var dbContext1 = _defaultContextFactory.GetDefaultDbContext(WriteAndRead.Read);
+            var query1 = from u in dbContext1.User.AsNoTracking()
+                         select u;
+            list1 = query1.AsEnumerable();
             return Ok(new { list, list1 });
         }
     }

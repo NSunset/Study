@@ -10,10 +10,74 @@ using System.Linq.Expressions;
 
 namespace ThirdPartyDemo
 {
+    public class CustomTest
+    {
+        public object GetService(System.Type type)
+        {
+            return type;
+        }
+    }
+
+    public interface IDbContextOptions
+    {
+       
+    }
+
+    public class MySqlDbContextOptions : IDbContextOptions
+    {
+       
+    }
+
+
     class Program
     {
         static async Task Main(string[] args)
         {
+
+            {
+                var url = "https://localhost:5001/weatherforecast";
+                var client = new HttpClient();
+
+                for (int i = 0; i < 300; i++)
+                {
+                    var response = await client.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        var content = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"服务器错误:{content};Error:{response.StatusCode}");
+                    }
+                    else
+                    {
+                        var content = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine(content);
+                    }
+                }
+                
+            }
+
+
+            {
+                var constructor = typeof(CustomTest).GetConstructor(System.Type.EmptyTypes);
+
+                var method = typeof(CustomTest).GetMethod("GetService");
+
+
+                var customTest = Expression.Parameter(typeof(CustomTest));
+
+                var type = Expression.Parameter(typeof(Type));
+                //var call = Expression.Call(Expression.New(constructor), typeof(CustomTest).GetMethod("GetService"), type);
+
+                var call = Expression.Call(Expression.New(constructor), typeof(CustomTest).GetMethod("GetService"), Expression.Convert(Expression.Constant(typeof(MySqlDbContextOptions)), typeof(Type))); 
+                UnaryExpression testExpression = Expression.Convert(Expression.New(constructor), typeof(CustomTest));
+
+                var lambda = Expression.Lambda<Func<object>>(call).Compile();
+
+                
+                var aa = lambda();
+
+                
+            }
 
             {
                 //lambda表达式学习
@@ -49,6 +113,7 @@ namespace ThirdPartyDemo
 
                 //构建参数
                 ParameterExpression pe = Expression.Parameter(typeof(string), "parameter");
+
 
                 //构建方法 a.ToLower()
                 MethodCallExpression left = Expression.Call(pe, typeof(string).GetMethod("ToLower", System.Type.EmptyTypes));
@@ -127,6 +192,9 @@ namespace ThirdPartyDemo
                         label
                       )
                 );
+
+
+
 
             }
 
