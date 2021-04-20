@@ -34,6 +34,13 @@ namespace ThirdPartyDemo
         static async Task Main(string[] args)
         {
 
+
+            {
+                
+            }
+
+
+
             {
                 var url = "https://localhost:5001/weatherforecast";
                 var client = new HttpClient();

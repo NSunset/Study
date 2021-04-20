@@ -5,12 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="处理模式\" />
     <Folder Include="外观模式\" />
     <Folder Include="享元模式\" />
     <Folder Include="组合模式\" />
-    <Folder Include="装饰器模式\" />
-    <Folder Include="适配器模式\" />
     <Folder Include="桥接模式\" />
   </ItemGroup>
 

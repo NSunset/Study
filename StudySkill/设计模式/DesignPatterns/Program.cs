@@ -5,6 +5,9 @@ using CreationDesign.抽象工厂模式;
 using CreationDesign.建造者模式;
 using System;
 using System.Threading.Tasks;
+using StructureDesign.装饰器模式;
+using StructureDesign.代理模式;
+using StructureDesign.适配器模式;
 
 namespace DesignPatterns
 {
@@ -125,6 +128,78 @@ namespace DesignPatterns
             #region 结构型设计模式:类和类之间的关系
 
             {
+                #region 装饰器模式
+
+                {
+                    //INotice notice = new PhoneNotice(null);
+                    //notice.SendMessage();
+
+                    //var notice1 = new EmailNotice(notice);
+                    //notice1.SendMessage();
+
+                    //var notice2 = new QQNotice(notice1);
+                    //notice2.SendMessage();
+
+
+                }
+
+                #endregion
+
+                #region 桥接模式
+
+                {
+
+                }
+
+                #endregion
+
+                #region 适配器模式
+
+                {
+                    //ICar car = new WulingHongguang();
+                    //car.Run(50, 50);
+
+                    //ICar car1 = new Adapter(new RailService());
+                    //car1.Run(60, 60);
+                }
+
+                #endregion
+
+                #region 组合模式
+
+                {
+
+                }
+
+                #endregion
+
+                #region 享元模式
+
+                {
+
+                }
+
+                #endregion
+
+                #region 代理模式
+
+                {
+                    //ISubject subject = new HttpRequest();
+
+                    //HttpRequestProxy proxy = new HttpRequestProxy(subject);
+                    //proxy.Request();
+
+                }
+
+                #endregion
+
+                #region 外观模式
+
+                {
+
+                }
+
+                #endregion
 
             }
 

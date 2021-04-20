@@ -10,5 +10,10 @@ namespace CreationDesign.工厂方法模式
         {
             return new SteamshipTransport();
         }
+
+        public override void Operating()
+        {
+            base.Operating();
+        }
     }
 }

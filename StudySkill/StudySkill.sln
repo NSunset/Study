@@ -29,13 +29,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "创建型设计模式", "�
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "结构型设计模式", "结构型设计模式", "{6E7BF9E9-05A5-42D9-A938-6611B8885601}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationDesign", "设计模式\创建型设计模式\CreationDesign\CreationDesign.csproj", "{AD2DC0C3-BEE1-42C3-AE41-44AC31926581}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreationDesign", "设计模式\创建型设计模式\CreationDesign\CreationDesign.csproj", "{AD2DC0C3-BEE1-42C3-AE41-44AC31926581}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehavioralDesign", "设计模式\行为型设计模式\BehavioralDesign\BehavioralDesign.csproj", "{0090731A-7C7E-4833-819A-BC2E8B2587D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BehavioralDesign", "设计模式\行为型设计模式\BehavioralDesign\BehavioralDesign.csproj", "{0090731A-7C7E-4833-819A-BC2E8B2587D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructureDesign", "设计模式\结构型设计模式\StructureDesign\StructureDesign.csproj", "{1B9E81EA-6E1D-4B9B-BF97-FD53EE2B7D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StructureDesign", "设计模式\结构型设计模式\StructureDesign\StructureDesign.csproj", "{1B9E81EA-6E1D-4B9B-BF97-FD53EE2B7D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "设计模式\DesignPatterns\DesignPatterns.csproj", "{B451130A-0A0F-407F-9C40-8881CC758FEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "设计模式\DesignPatterns\DesignPatterns.csproj", "{B451130A-0A0F-407F-9C40-8881CC758FEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Socket", "Socket", "{9714AE52-66E7-4B88-A76E-88DF7922C0AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR", "SignalR", "{CBE4C021-4CD5-4375-A721-7BB532AFB028}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSocket", "WebSocket", "{E0754C23-5D04-4D28-B89C-FF371496BCE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSocketServer", "Socket\WebSocket\WebSocketServer\WebSocketServer.csproj", "{96781FE3-728A-4B68-B710-E65C766535F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleck", "Socket\WebSocket\Fleck\Fleck.csproj", "{AB850D8E-5877-4093-B5F7-0445F04AFEA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "调度", "调度", "{657D88C2-58BB-48DD-9C45-1ECBE3A5EBCA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DspatchService", "调度\DspatchService\DspatchService.csproj", "{EC217BE8-67FB-4776-8AA1-41443F38134A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DspatchTest", "调度\DspatchTest\DspatchTest.csproj", "{CECE9FB8-EF58-4E0F-8BB1-FB5826D888C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "表达式树", "表达式树", "{1F57BD1D-6931-4270-A2FB-0ADDD1EAD320}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpressionsTests", "表达式树\ExpressionsTests\ExpressionsTests.csproj", "{13E2D669-9F63-4075-8D7E-C68A1BDA1337}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +107,26 @@ Global
 		{B451130A-0A0F-407F-9C40-8881CC758FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B451130A-0A0F-407F-9C40-8881CC758FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B451130A-0A0F-407F-9C40-8881CC758FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96781FE3-728A-4B68-B710-E65C766535F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96781FE3-728A-4B68-B710-E65C766535F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96781FE3-728A-4B68-B710-E65C766535F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96781FE3-728A-4B68-B710-E65C766535F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB850D8E-5877-4093-B5F7-0445F04AFEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB850D8E-5877-4093-B5F7-0445F04AFEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB850D8E-5877-4093-B5F7-0445F04AFEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB850D8E-5877-4093-B5F7-0445F04AFEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC217BE8-67FB-4776-8AA1-41443F38134A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC217BE8-67FB-4776-8AA1-41443F38134A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC217BE8-67FB-4776-8AA1-41443F38134A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC217BE8-67FB-4776-8AA1-41443F38134A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECE9FB8-EF58-4E0F-8BB1-FB5826D888C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECE9FB8-EF58-4E0F-8BB1-FB5826D888C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECE9FB8-EF58-4E0F-8BB1-FB5826D888C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECE9FB8-EF58-4E0F-8BB1-FB5826D888C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E2D669-9F63-4075-8D7E-C68A1BDA1337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E2D669-9F63-4075-8D7E-C68A1BDA1337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E2D669-9F63-4075-8D7E-C68A1BDA1337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E2D669-9F63-4075-8D7E-C68A1BDA1337}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +146,13 @@ Global
 		{0090731A-7C7E-4833-819A-BC2E8B2587D5} = {0D503FBD-F534-4E48-B9C6-FFE92FB75410}
 		{1B9E81EA-6E1D-4B9B-BF97-FD53EE2B7D6A} = {6E7BF9E9-05A5-42D9-A938-6611B8885601}
 		{B451130A-0A0F-407F-9C40-8881CC758FEE} = {E5E9D861-A283-4591-AE68-3C176E7998ED}
+		{CBE4C021-4CD5-4375-A721-7BB532AFB028} = {9714AE52-66E7-4B88-A76E-88DF7922C0AF}
+		{E0754C23-5D04-4D28-B89C-FF371496BCE4} = {9714AE52-66E7-4B88-A76E-88DF7922C0AF}
+		{96781FE3-728A-4B68-B710-E65C766535F1} = {E0754C23-5D04-4D28-B89C-FF371496BCE4}
+		{AB850D8E-5877-4093-B5F7-0445F04AFEA4} = {E0754C23-5D04-4D28-B89C-FF371496BCE4}
+		{EC217BE8-67FB-4776-8AA1-41443F38134A} = {657D88C2-58BB-48DD-9C45-1ECBE3A5EBCA}
+		{CECE9FB8-EF58-4E0F-8BB1-FB5826D888C0} = {657D88C2-58BB-48DD-9C45-1ECBE3A5EBCA}
+		{13E2D669-9F63-4075-8D7E-C68A1BDA1337} = {1F57BD1D-6931-4270-A2FB-0ADDD1EAD320}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9310BCB-2099-4F9A-AFD9-39BA1533517D}

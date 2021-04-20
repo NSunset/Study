@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CreationDesign.工厂方法模式
 {
+    /// <summary>
+    /// 轮船运输
+    /// </summary>
     public class SteamshipTransport : ITransport
     {
         public void Payment()
