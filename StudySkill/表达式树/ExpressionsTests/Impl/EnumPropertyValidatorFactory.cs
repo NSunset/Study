@@ -7,23 +7,19 @@ using System.Linq;
 
 namespace ExpressionsTests
 {
+    /// <summary>
+    /// 枚举输入的值在枚举范围内验证
+    /// </summary>
     public class EnumPropertyValidatorFactory : IPropertyValidatorFactory
     {
         public IEnumerable<Expression> CreateExpression(CreatePropertyValidatorInput input)
         {
-            EnumAttribute enumAttribute = input.Property.GetCustomAttribute<EnumAttribute>();
-            if (enumAttribute == null)
-            {
-                yield break;
-            }
-            var type = input.Property.PropertyType;
-            if (!type.IsEnum)
-            {
-                yield break;
-            }
-            var okRange = string.Join(
-                "或",
-                Enum.GetValues(type).Cast<Enum>().Select(x => x.ToString("D")));
+            EnumAttribute enumAttribute = input.InputProperty.GetCustomAttribute<EnumAttribute>();
+            if (enumAttribute == null) yield break;
+
+            var type = input.InputProperty.PropertyType;
+            if (!type.IsEnum) yield break;
+
             yield return ExpressionHelp.CreateValidateExpression(input,
                 ExpressionHelp.CreateCheckExpression(type,
                 GetCheckExp(input),
@@ -35,7 +31,7 @@ namespace ExpressionsTests
 
         private Func<Expression, Expression> GetCheckExp(CreatePropertyValidatorInput input)
         {
-            Type type = input.Property.PropertyType;
+            Type type = input.InputProperty.PropertyType;
             ParameterExpression nameExp = Expression.Parameter(typeof(string), "name");
             ParameterExpression valueExp = Expression.Parameter(type, "value");
 
@@ -68,7 +64,7 @@ namespace ExpressionsTests
             Func<Expression, Expression> error = inputExp =>
              {
                  //{}只能输入{}不能输入{}
-                 Type type = input.Property.PropertyType;
+                 Type type = input.InputProperty.PropertyType;
                  var okRange = string.Join(
                     "或",
                     Enum.GetValues(type).Cast<Enum>().Select(x => x.ToString("D")));
@@ -78,7 +74,7 @@ namespace ExpressionsTests
                  ConstantExpression okExp = Expression.Constant(okRange, typeof(string));
 
 
-                 MemberExpression errorExp = Expression.Property(inputExp, input.Property);
+                 MemberExpression errorExp = Expression.Property(inputExp, input.InputProperty);
 
                  MethodCallExpression stringFormatExp = Expression.Call(
                   typeof(string),

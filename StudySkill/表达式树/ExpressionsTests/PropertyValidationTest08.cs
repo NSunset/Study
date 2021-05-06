@@ -184,7 +184,7 @@ namespace ExpressionsTests
                         Ids1 = new List<int> { 1 },
                         NumberOfMeals = 10
                     };
-                    var (isOk,errorMessage) = Validate(input);
+                    var (isOk, errorMessage) = Validate(input);
                     Assert.False(isOk);
                     Assert.AreEqual(errorMessage, $"{nameof(input.NumberOfMeals)}要大于{nameof(input.Age)},但是当前{nameof(input.NumberOfMeals)}为{input.NumberOfMeals},{nameof(input.Age)}为{input.Age}");
                 }
@@ -192,7 +192,7 @@ namespace ExpressionsTests
                 //test 11
                 {
                     CreateClaptrapInput input = null;
-                    var (isOk, errorMessage) = Validate(input);
+                    var (isOk, errorMessage, allErrorMessage) = Validate(input);
                     Assert.IsFalse(isOk);
                     Assert.NotNull(errorMessage);
                 }
@@ -205,6 +205,21 @@ namespace ExpressionsTests
                         NickName = "银角大王",
                         Pwd = "123456",
                         OldPwd = "v123456"
+                    };
+                    var (isOk, errorMessage) = Validate(input);
+                    Assert.IsFalse(isOk);
+                    Assert.NotNull(errorMessage);
+                }
+
+                //test 12
+                {
+                    CreateClaptrapInput input = new CreateClaptrapInput
+                    {
+                        Name = "小旋风",
+                        NickName = "银角大王",
+                        Pwd = "123456",
+                        OldPwd = "123456",
+                        User = null
                     };
                     var (isOk, errorMessage) = Validate(input);
                     Assert.IsFalse(isOk);
@@ -231,7 +246,7 @@ namespace ExpressionsTests
                                         null,
                                         Expression.Constant("name不能为NULL"));
 
-             
+
 
                 PropertyInfo isOk = typeof(ValidateResult).GetProperty(nameof(ValidateResult.IsOk));
 
@@ -254,9 +269,9 @@ namespace ExpressionsTests
                 BlockExpression re = Expression.Block(getValidateResultExp);
                 return re;
             }
-            
 
-           
+
+
             MethodCallExpression anyExp = Expression.Call(
                 typeof(Enumerable),
                 nameof(Enumerable.Any),
@@ -277,6 +292,8 @@ namespace ExpressionsTests
             var test = exp.Compile()();
             Assert.IsTrue(test);
         }
+
+
 
         public ValidateResult Validate(CreateClaptrapInput input)
         {

@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ExpressionsTests
 {
+    /// <summary>
+    /// Enumerable<T>必须ToArry或者ToList验证
+    /// </summary>
     public class EnumerablePropertyToArryOrListValidatorFactor : EnumerablePropertyValidatorFactoryBase
     {
         protected override IEnumerable<Expression> CreateExpressionCore(CreatePropertyValidatorInput input, Type iEnumerable)

@@ -36,5 +36,7 @@ namespace ExpressionsTests
 
         [EqualTo(Target = nameof(Pwd))]
         public string OldPwd { get; set; }
+
+        public User User { get; set; } = new User { Phone = "15872635998" };
     }
 }

@@ -8,6 +8,9 @@ using System.Text;
 
 namespace ExpressionsTests
 {
+    /// <summary>
+    /// Enumerable<T>必须至少包含一个元素验证
+    /// </summary>
     public class EnumerablePropertyAnyValidatorFactory : EnumerablePropertyValidatorFactoryBase
     {
         protected override IEnumerable<Expression> CreateExpressionCore(CreatePropertyValidatorInput input, Type iEnumerable)

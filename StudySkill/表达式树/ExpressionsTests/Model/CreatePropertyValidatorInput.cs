@@ -8,14 +8,29 @@ namespace ExpressionsTests
 {
     public class CreatePropertyValidatorInput
     {
-        public Expression InputExpression { get; set; }
+        /// <summary>
+        /// 需要验证的对象
+        /// </summary>
+        public Expression InputValueExpression { get; set; }
 
+        /// <summary>
+        /// 需要验证的属性类型
+        /// </summary>
         public Type InputType { get; set; }
 
-        public PropertyInfo Property { get; set; }
+        /// <summary>
+        /// 需要验证的属性
+        /// </summary>
+        public PropertyInfo InputProperty { get; set; }
 
+        /// <summary>
+        /// 返回值标签
+        /// </summary>
         public LabelTarget ReturnLabel { get; set; }
 
+        /// <summary>
+        /// 返回值变量
+        /// </summary>
         public ParameterExpression ResultExpression { get; set; }
 
         /// <summary>
@@ -23,25 +38,40 @@ namespace ExpressionsTests
         /// </summary>
         public bool ValidatorAll { get; set; }
 
-
-        public static CreatePropertyValidatorInput GetInstance(Expression inputExp, Type inputType, PropertyInfo inputProperty)
+        /// <summary>
+        /// 添加实例：指定验证所有
+        /// </summary>
+        /// <param name="inputValueExp"></param>
+        /// <param name="inputType"></param>
+        /// <param name="inputProperty"></param>
+        /// <returns></returns>
+        public static CreatePropertyValidatorInput GetInstance(Expression inputValueExp, Type inputType, PropertyInfo inputProperty)
         {
             return new CreatePropertyValidatorInput
             {
-                InputExpression = inputExp,
+                InputValueExpression = inputValueExp,
                 InputType = inputType,
-                Property = inputProperty,
+                InputProperty = inputProperty,
                 ValidatorAll = true
             };
         }
 
-        public static CreatePropertyValidatorInput GetInstance(Expression inputExp, Type inputType, PropertyInfo inputProperty, LabelTarget returnLabel, ParameterExpression resultExp)
+        /// <summary>
+        /// 添加实例：指定不验证所有,一旦遇到错误就直接返回结果不继续往下验证了
+        /// </summary>
+        /// <param name="inputValueExp"></param>
+        /// <param name="inputType"></param>
+        /// <param name="inputProperty"></param>
+        /// <param name="returnLabel"></param>
+        /// <param name="resultExp"></param>
+        /// <returns></returns>
+        public static CreatePropertyValidatorInput GetInstance(Expression inputValueExp, Type inputType, PropertyInfo inputProperty, LabelTarget returnLabel, ParameterExpression resultExp)
         {
             return new CreatePropertyValidatorInput
             {
-                InputExpression = inputExp,
+                InputValueExpression = inputValueExp,
                 InputType = inputType,
-                Property = inputProperty,
+                InputProperty = inputProperty,
                 ReturnLabel = returnLabel,
                 ResultExpression = resultExp
             };

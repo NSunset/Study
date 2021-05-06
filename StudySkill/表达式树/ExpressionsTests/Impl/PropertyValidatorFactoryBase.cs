@@ -12,7 +12,7 @@ namespace ExpressionsTests
 
         public virtual IEnumerable<Expression> CreateExpression(CreatePropertyValidatorInput input)
         {
-            if (input.Property.PropertyType != typeof(TValue))
+            if (input.InputProperty.PropertyType != typeof(TValue))
             {
                 return Enumerable.Empty<Expression>();
             }

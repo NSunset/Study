@@ -9,18 +9,17 @@ using System.Collections;
 
 namespace ExpressionsTests
 {
+    /// <summary>
+    /// Enumerable<T>验证父类
+    /// </summary>
     public abstract class EnumerablePropertyValidatorFactoryBase : IPropertyValidatorFactory
     {
         public virtual IEnumerable<Expression> CreateExpression(CreatePropertyValidatorInput input)
         {
-            Type propertyType = input.Property.PropertyType;
-            if (propertyType == typeof(string))
-            {
-                return Enumerable.Empty<Expression>();
-            }
+            Type propertyType = input.InputProperty.PropertyType;
+            if (propertyType == typeof(string)) return Enumerable.Empty<Expression>();
 
             var interfaces = GetAllInterfaceIncludingSelf(propertyType).FirstOrDefault(x => x.Name == "IEnumerable`1");
-
             IEnumerable<Type> GetAllInterfaceIncludingSelf(Type type)
             {
                 foreach (var i in type.GetInterfaces())
@@ -29,10 +28,8 @@ namespace ExpressionsTests
                 }
                 yield return type;
             }
-            if (interfaces == null)
-            {
-                return Enumerable.Empty<Expression>();
-            }
+            if (interfaces == null) return Enumerable.Empty<Expression>();
+
             return CreateExpressionCore(input, interfaces);
         }
 

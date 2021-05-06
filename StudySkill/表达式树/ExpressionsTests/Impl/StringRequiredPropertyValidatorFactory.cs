@@ -7,15 +7,16 @@ using System.Text;
 
 namespace ExpressionsTests
 {
+    /// <summary>
+    /// string类型不能为空验证
+    /// </summary>
     public class StringRequiredPropertyValidatorFactory : PropertyValidatorFactoryBase<string>
     {
         protected override IEnumerable<Expression> CreateExpressionCore(CreatePropertyValidatorInput input)
         {
-            var required = input.Property.GetCustomAttribute<RequiredAttribute>();
-            if (required == null)
-            {
-                yield break;
-            }
+            var required = input.InputProperty.GetCustomAttribute<RequiredAttribute>();
+            if (required == null) yield break;
+
             Expression<Func<string, bool>> checkBoxExp = value => string.IsNullOrEmpty(value);
 
             yield return ExpressionHelp.CreateValidateExpression(input,

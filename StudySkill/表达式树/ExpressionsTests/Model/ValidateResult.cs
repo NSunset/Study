@@ -54,5 +54,12 @@ namespace ExpressionsTests
         {
             return ErrorMessage.FirstOrDefault();
         }
+
+        public ValidateResult SetErrorMessage(List<string> errorMessage)
+        {
+            this.ErrorMessage = errorMessage;
+            this.IsOk = false;
+            return this;
+        }
     }
 }

@@ -7,36 +7,59 @@ using System.Text;
 
 namespace ExpressionsTests
 {
+    /// <summary>
+    /// string类型长度验证
+    /// </summary>
     public class StringLengthPropertyValidatorFactory : PropertyValidatorFactoryBase<string>
     {
         protected override IEnumerable<Expression> CreateExpressionCore(CreatePropertyValidatorInput input)
         {
-            var minLengthAttribute = input.Property.GetCustomAttribute<MinLengthAttribute>();
-            if (minLengthAttribute != null)
-            {
-                var minLength = minLengthAttribute.Length;
-                Expression<Func<string, bool>> checkBoxExp = value => string.IsNullOrEmpty(value) || value.Length < minLength;
+            yield return MinLengthValidator(input);
 
-                yield return ExpressionHelp.CreateValidateExpression(input,
-                   ExpressionHelp.CreateCheckExpression(typeof(string),
-                    checkBoxExp,
-                    GetLengMinErrExp(minLength)
-                    )
-                    );
-            }
-            var maxLengthAttribute = input.Property.GetCustomAttribute<MaxLengthAttribute>();
-            if (maxLengthAttribute != null)
-            {
-                var maxLength = maxLengthAttribute.Length;
-                Expression<Func<string, bool>> checkBoxExp = value => string.IsNullOrEmpty(value) || value.Length > maxLength;
+            yield return MaxLengthValidator(input);
+        }
 
-                yield return ExpressionHelp.CreateValidateExpression(input,
-                   ExpressionHelp.CreateCheckExpression(typeof(string),
-                    checkBoxExp,
-                    GetLengMaxErrExp(maxLength)
-                    )
-                    );
-            }
+        /// <summary>
+        /// 不能小于指定最小值验证
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private Expression MinLengthValidator(CreatePropertyValidatorInput input)
+        {
+            var minLengthAttribute = input.InputProperty.GetCustomAttribute<MinLengthAttribute>();
+            if (minLengthAttribute == null) return Expression.Empty();
+
+            var minLength = minLengthAttribute.Length;
+            Expression<Func<string, bool>> checkBoxExp = value => string.IsNullOrEmpty(value) || value.Length < minLength;
+
+            return ExpressionHelp.CreateValidateExpression(input,
+              ExpressionHelp.CreateCheckExpression(typeof(string),
+               checkBoxExp,
+               GetLengMinErrExp(minLength)
+               )
+               );
+        }
+
+        /// <summary>
+        /// 不能大于指定最大值验证
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private Expression MaxLengthValidator(CreatePropertyValidatorInput input)
+        {
+            var maxLengthAttribute = input.InputProperty.GetCustomAttribute<MaxLengthAttribute>();
+            if (maxLengthAttribute == null) return Expression.Empty();
+
+            var maxLength = maxLengthAttribute.Length;
+            Expression<Func<string, bool>> checkBoxExp = value => string.IsNullOrEmpty(value) || value.Length > maxLength;
+
+            return ExpressionHelp.CreateValidateExpression(input,
+              ExpressionHelp.CreateCheckExpression(typeof(string),
+               checkBoxExp,
+               GetLengMaxErrExp(maxLength)
+               )
+               );
+
         }
 
         private static Expression<Func<string, ValidateResult>> GetLengMinErrExp(int minLength)
